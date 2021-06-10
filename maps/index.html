@@ -8,12 +8,30 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <title>Document</title>
+  <style>
+    #text {
+      animation-name: animation;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      text-align: center;
+    }
+    @keyframes animation {
+      0% {letter-spacing: 10px;text-shadow: 1px 1px 2px black;color: white;}
+      50% {letter-spacing: 0px;text-shadow: 0px 0px 1px black;color: black;}
+      100% {letter-spacing: 10px;text-shadow: 1px 1px 2px black;color: white;}
+    }
+  </style>
 </head>
 
 <body>
 
-  <div class="form-control">Đây là đoạn đường mà mình sẽ tới để gặp Ngọc</div>
-
+  <div id="text" class="form-control"> 💖 Đây là đoạn đường mà mình sẽ tới để gặp Ngọc 💖 </div>
+  <div></div>
+  <div class="col-12">
+    <button class="btn btn-infor">
+      Bắt đầu đi nàp!!!
+    </button>
+  </div>
   <div id="map" style="width:100%;height:600px;"></div>
 
   <script>
