@@ -29,7 +29,7 @@
   <div></div>
   <div class="col-12">
     <button class="btn btn-infor">
-      Bắt đầu đi nàp!!!
+      Bắt đầu đi nào!!!
     </button>
   </div>
   <div id="map" style="width:100%;height:600px;"></div>
@@ -41,11 +41,21 @@
         center: new google.maps.LatLng(21.02572892050067, 105.78572893288148), zoom: 16
       };
       var map = new google.maps.Map(mapCanvas, mapOptions);
+      var size = {
+        width: 55,
+        height: 50
+      }
+      drawImageMaker(map, mapOptions.center, 'congtua.PNG', size)
+    }
+    function drawImageMaker(map, position, image, scaledSize) {
       var marker = new google.maps.Marker({
-        position: mapOptions.center,
-        animation: google.maps.Animation.BOUNCE
+        position: position,
+        animation: google.maps.Animation.BOUNCE,
+        icon: {
+          url: image,
+          scaledSize: new google.maps.Size(scaledSize.width, scaledSize.height)
+        }
       });
-
       marker.setMap(map);
     }
   </script>
