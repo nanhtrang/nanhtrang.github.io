@@ -30,7 +30,8 @@
 
   </textarea>
   <script>
-    
+    let list = []
+
     function initMap() {
       const myLatlng = new google.maps.LatLng(21.02733368654539, 105.7704857506631)
       const map = new google.maps.Map(document.getElementById("map"), {
@@ -51,10 +52,17 @@
         // infoWindow = new google.maps.InfoWindow({
         //   position: mapsMouseEvent.latLng,
         // });
-        infoWindow.setContent(
-          JSON.stringify(v, null, 2)
-        );
-        infoWindow.open(map)
+        list.push(
+          {
+            lat: mapsMouseEvent.latLng.lat(),
+            lng: mapsMouseEvent.latLng.lng()
+          }
+        )
+        console.log(list)
+        // infoWindow.setContent(
+        //  JSON.stringify(mapsMouseEvent.latLng, null, 2)
+        // );
+        // infoWindow.open(map)
 
         // const fs = require('fs');
         let filePath = 'location.txt'
