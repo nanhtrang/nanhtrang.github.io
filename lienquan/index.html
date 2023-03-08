@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/6f3176ebc0.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="container">
+      <div class="left">
+        <ul>
+          <li class="active animationShow delay-03">
+            <i class="fa-solid fa-house-user"></i>
+            <div>Home</div>
+          </li>
+          <li class="animationShow delay-04">
+            <i class="fa-solid fa-star"></i>
+            <div>Favorite</div>
+          </li>
+          <li class="animationShow delay-05">
+            <i class="fa-solid fa-comment-medical"></i>
+            <div>Chat</div>
+          </li>
+          <li class="animationShow delay-06">
+            <i class="fa-solid fa-info"></i>
+            <div>About</div>
+          </li>
+        </ul>
+      </div>
+      <div class="center">
+        <div class="animationShow delay-04">Triệu Vân</div>
+        <div>
+          <div class="banner">
+            <div class="banner-title ">
+              <div class="info-banner animationShow delay-06">
+                Triệu Vân
+              </div>
+            </div>
+            <img class="animationShow delay-05" src="./images/1.jpeg" alt="">
+          </div>
+        </div>
+        <div class="content">
+          <div class="item animationShow1 delay-12">
+            <img src="images/2.jpeg" alt="">
+          </div>
+          <div class="item animationShow1 delay-11">
+            <img src="images/3.jpeg" alt="">
+          </div>
+          <div class="item animationShow1 delay-10">
+            <img src="images/4.jpeg" alt="">
+          </div>
+          <div class="item animationShow1 delay-09">
+            <img src="images/5.jpeg" alt="">
+          </div>
+          <div class="item animationShow1 delay-08">
+            <img src="images/6.jpeg" alt="">
+          </div>
+          <div class="item animationShow1 delay-07">
+            <img src="images/7.jpeg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="avatar animationShow delay-06" id="sk1" onclick="clickSkill('sk1')">
+          <div class="sk-img">
+            <img src="images/sk1.png" alt="">
+          </div>
+          <div class="sk-des">
+            Long Tướng
+          </div>
+        </div>
+        <div class="avatar animationShow delay-07" onclick="clickSkill('sk2')">
+          <div class="sk-img">
+            <img src="images/sk2.png" alt="">
+          </div>
+          <div class="sk-des">
+            Long Hống
+          </div>
+        </div>
+        <div class="avatar animationShow delay-08" onclick="clickSkill('sk3')">
+          <div class="sk-img">
+            <img src="images/sk3.png" alt="">
+          </div>
+          <div class="sk-des">
+            Long Huyết
+          </div>
+        </div>
+        <div class="avatar animationShow delay-09" onclick="clickSkill('sk4')">
+          <div class="sk-img">
+            <img src="images/sk4.png" alt="">
+          </div>
+          <div class="sk-des">
+            Long Kích
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-modal" id="main-modal">
+      <div class="modal" id="modal1">
+        <div class="x-time" onclick="closeModal('sk1')"><i class="fa-solid fa-circle-xmark"></i></div>
+        <div class="modal-body">
+          <div class="modal-img animationShow delay-05">
+            <img src="images/sk1.png" alt="">
+          </div>
+          <div class="model-text">
+            <h1 class="animationShow2 delay-08">Long Tướng</h1>
+            <div class="animationShow2 delay-08">
+              Hồi chiêu: 0 giây
+            </div>
+            <br>
+            <div class="animationShow2 delay-08">
+              Tiêu hao: 0 năng lượng
+            </div>
+            <br>
+            <div class="animationShow2 delay-09">
+              Nội tại: Mỗi điểm hạ hoặc phụ tăng cho Triệu Vân 12 công vật lý. Cộng dồn 20 lần. Mỗi một điểm hạ hoặc phụ hồi cho Triệu Vân 5% máu tối đa
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="modal2">
+        <div class="x-time" onclick="closeModal('sk2')"><i class="fa-solid fa-circle-xmark"></i></div>
+        <div class="modal-body">
+          <div class="modal-img animationShow1 delay-05">
+            <img src="images/sk2.png" alt="">
+          </div>
+          <div class="model-text">
+            <h1 class="animationShow1 delay-05">Long Hống</h1>
+            <div class="animationShow1 delay-05">
+              Hồi chiêu: 8/7.7/7.4/7.1/6.8/6.5 giây
+            </div>
+            <br>
+            <div class="animationShow1 delay-05">
+              Tiêu hao: 70/75/80/85/90/95 năng lượng
+            </div>
+            <br>
+            <div class="animationShow2 delay-09">
+              Triệu Vân quét thương, gây 180/210/240/270/300/330 (+0.7 Công vật lý) sát thương vật lý lên những kẻ địch lân cận, đồng thời giúp hắn tăng cho bản thân 100/120/140/160/180/200% tốc đánh và 10/12/14/16/18/20% hút máu trong 3.5 giây
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="modal3">
+        <div class="x-time" onclick="closeModal('sk3')"><i class="fa-solid fa-circle-xmark"></i></div>
+        <div class="modal-body">
+          <div class="modal-img animationShow1 delay-05">
+            <img src="images/sk3.png" alt="">
+          </div>
+          <div class="model-text">
+            <h1 class="animationShow1 delay-05">Long Huyết</h1>
+            <div class="animationShow1 delay-05">
+              Hồi chiêu: 9/8.6/8.2/7.8/7.4/7 giây
+            </div>
+            <br>
+            <div class="animationShow1animationShow1 delay-05">
+              Tiêu hao: 60/65/70/75/80/85 năng lượng
+            </div>
+            <br>
+            <div class="animationShow2 delay-09">
+              Triệu Vân cường hóa bản thân giúp loại bỏ mọi trạng thái bất lợi đang gánh chịu, đồng thời tăng 80% tốc chạy trong 1.5 giây. Đòn đánh thường kế tiếp sẽ được cường hóa, gây thêm 200/225/250/275/300/325 sát thương vật lý lên những kẻ địch lân cận, khiến chúng bị làm chậm 50% tốc chạy trong 1.5 giây.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal" id="modal4">
+        <div class="x-time" onclick="closeModal('sk4')"><i class="fa-solid fa-circle-xmark"></i></div>
+        <div class="modal-body">
+          <div class="modal-img animationShow1 delay-05">
+            <img src="images/sk4.png" alt="">
+          </div>
+          <div class="model-text">
+            <h1 class="animationShow1 delay-05">Long Kích</h1>
+            <div class="animationShow1 delay-05">
+              Hồi chiêu: 24/22/20 giây
+            </div>
+            <br>
+            <div class="animationShow1 delay-05">
+              Tiêu hao: 100/125/150 năng lượng
+            </div>
+            <br>
+            <div class="animationShow2 delay-09">
+              Triệu Vân nện thương lên mục tiêu, gây 275/335/395 (+1.2 Công vật lý) sát thương chuẩn kèm hiệu ứng hất văng thoáng chốc. Ngoài ra Triệu Vân còn nhận 20% miễn thương, đặc biệt các đòn đánh thường gây thêm 60/90/120 (+0.3 Công vật lý) sát thương chuẩn. Hiệu ứng kéo dài 5 giây.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

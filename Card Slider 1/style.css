@@ -1,0 +1,107 @@
+body {
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #fafafa;
+
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 500px;
+  box-shadow: 0 20px 30px #bdbdbd;
+  padding: 50px;
+}
+
+.slider {
+  width: max-content;
+}
+.item {
+  width: 400px;
+  height: 260px;
+  background-position: 50% 50%;
+  display: inline-block;
+  transition: 1s;
+  background-size: 200%;
+  position: absolute;
+  z-index: 2;
+}
+.item:nth-child(1) {
+  transform: translateX(-150%);
+  opacity: 0;
+  background-position: 0% 50%;
+}
+.item:nth-child(2) {
+  transform: translateX(-40%);
+  background-position: 20% 50%;
+}
+.item:nth-child(3) {
+  transform: translateX(70%);
+  background-position: 50% 50%;
+  width: 400px;
+  height: 300px;
+}
+
+.item:nth-child(4) {
+  transform: translateX(180%);
+  background-position: 70% 50%;
+}
+
+.item:nth-child(n + 5) {
+  transform: translateX(290%);
+  background-position: 100% 50%;
+  opacity: 0;
+}
+
+.item .content {
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  width: 90%;
+  padding: 0% 5%;
+  box-shadow: 0 20px 30px #b9b9b9;
+  text-align: center;
+  overflow: hidden;
+  max-height: 0;
+  transition: ease 0.5s all;
+}
+
+.item:hover .content {
+  max-height: 100px;
+  padding: 3% 5%;
+}
+
+.item:hover {
+  background-size: 250%;
+}
+
+.buttons {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: inline-flex;
+  justify-content: center;
+}
+.btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #555;
+}
+
+.btn:hover {
+  background-color: antiquewhite;
+}
