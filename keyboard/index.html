@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=ơ, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/6f3176ebc0.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="screen" id="screen">
+    </div>
+    <button onclick="clickButton('up')" id="up" class="arrow-item up"><span><i class="fa-solid fa-chevron-up"></i></span></button>
+    <button onclick="clickButton('left')" id="left" class="arrow-item left"><span><i class="fa-solid fa-chevron-left"></i></span></button>
+    <button onclick="clickButton('down')" id="down" class="arrow-item down" ><span><i class="fa-solid fa-chevron-down"></i></span></button>
+    <button onclick="clickButton('right')" id="right" class="arrow-item right"><span><i class="fa-solid fa-chevron-right"></i></span></button>
+    <div class="row row-f">
+      <button onclick="clickButton('ESC')" id="ESC"><span>ESC</span></button>
+      <button onclick="clickButton('F1')" id="F1"><span>F1</span></button>
+      <button onclick="clickButton('F2')" id="F2"><span>F2</span></button>
+      <button onclick="clickButton('F3')" id="F3"><span>F3</span></button>
+      <button onclick="clickButton('F4')" id="F4"><span>F4</span></button>
+      <button onclick="clickButton('F5')" id="F5"><span>F5</span></button>
+      <button onclick="clickButton('F6')" id="F6"><span>F6</span></button>
+      <button onclick="clickButton('F7')" id="F7"><span>F7</span></button>
+      <button onclick="clickButton('F8')" id="F8"><span>F8</span></button>
+      <button onclick="clickButton('F9')" id="F9"><span>F9</span></button>
+      <button onclick="clickButton('F10')" id="F10"><span>F10</span></button>
+      <button onclick="clickButton('F11')" id="F11"><span>F11</span></button>
+      <button onclick="clickButton('F12')" id="F12"><span>F12</span></button>
+      <button onclick="clickButton('Del')" id="Del"><span>Del</span></button>
+      <button class="knob">&nbsp;</button>
+    </div>
+    <div class="row row-num">
+      <button onclick="clickButton('`')" id="`"><span>`</span></button>
+      <button onclick="clickButton('1')" id="1"><span>1</span></button>
+      <button onclick="clickButton('2')" id="2"><span>2</span></button>
+      <button onclick="clickButton('3')" id="3"><span>3</span></button>
+      <button onclick="clickButton('4')" id="4"><span>4</span></button>
+      <button onclick="clickButton('5')" id="5"><span>5</span></button>
+      <button onclick="clickButton('6')" id="6"><span>6</span></button>
+      <button onclick="clickButton('7')" id="7"><span>7</span></button>
+      <button onclick="clickButton('8')" id="8"><span>8</span></button>
+      <button onclick="clickButton('9')" id="9"><span>9</span></button>
+      <button onclick="clickButton('0')" id="0"><span>0</span></button>
+      <button onclick="clickButton('-')" id="-"><span>-</span></button>
+      <button onclick="clickButton('=')" id="="><span>=</span></button>
+      <button onclick="clickButton('Backspace')" id="Backspace" class="u2"><span>Backspace</span></button>
+      <button onclick="clickButton('Hm')" id="Hm" class="other"><span>Hm</span></button>
+    </div>
+    <div class="row row-qwert">
+      <button onclick="clickButton('Tab')" id="Tab" class="u1-5"><span>Tab</span></button>
+      <button onclick="clickButton('Q')" id="Q"><span>Q</span></button>
+      <button onclick="clickButton('W')" id="W"><span>W</span></button>
+      <button onclick="clickButton('E')" id="E"><span>E</span></button>
+      <button onclick="clickButton('R')" id="R"><span>R</span></button>
+      <button onclick="clickButton('T')" id="T"><span>T</span></button>
+      <button onclick="clickButton('Y')" id="Y"><span>Y</span></button>
+      <button onclick="clickButton('U')" id="U"><span>U</span></button>
+      <button onclick="clickButton('I')" id="I"><span>I</span></button>
+      <button onclick="clickButton('O')" id="O"><span>O</span></button>
+      <button onclick="clickButton('P')" id="P"><span>P</span></button>
+      <button onclick="clickButton('[')" id="["><span>[</span></button>
+      <button onclick="clickButton(']')" id="]"><span>]</span></button>
+      <button onclick="clickButton('\\')" id="\" class="u1-5"><span>\</span></button>
+      <button onclick="clickButton('PU')" id="PU" class="other"><span>PU</span></button>
+    </div>
+    <div class="row row-asdfg">
+      <button onclick="clickButton('Caplock')" id="Caplock" class="u1-75"><span>Cap Lock</span></button>
+      <button onclick="clickButton('A')" id="A"><span>A</span></button>
+      <button onclick="clickButton('S')" id="S"><span>S</span></button>
+      <button onclick="clickButton('D')" id="D"><span>D</span></button>
+      <button onclick="clickButton('F')" id="F"><span>F</span></button>
+      <button onclick="clickButton('G')" id="G"><span>G</span></button>
+      <button onclick="clickButton('H')" id="H"><span>H</span></button>
+      <button onclick="clickButton('J')" id="J"><span>J</span></button>
+      <button onclick="clickButton('K')" id="K"><span>K</span></button>
+      <button onclick="clickButton('L')" id="L"><span>L</span></button>
+      <button onclick="clickButton(';')" id=";"><span>;</span></button>
+      <button onclick="clickButton('\'')" id="'"><span>'</span></button>
+      <button onclick="clickButton('Enter')" id="Enter" class="u2-25"><span>Enter</span></button>
+      <button onclick="clickButton('PD')" id="PD" class="other"><span>PD</span></button>
+    </div>
+    <div class="row row-zxcvb">
+      <button class="u2-25"><span>Shift</span></button>
+      <button onclick="clickButton('Z')" id="Z"><span>Z</span></button>
+      <button onclick="clickButton('X')" id="X"><span>X</span></button>
+      <button onclick="clickButton('C')" id="C"><span>C</span></button>
+      <button onclick="clickButton('V')" id="V"><span>V</span></button>
+      <button onclick="clickButton('B')" id="B"><span>B</span></button>
+      <button onclick="clickButton('N')" id="N"><span>N</span></button>
+      <button onclick="clickButton('M')" id="M"><span>M</span></button>
+      <button onclick="clickButton(',')" id=","><span>,</span></button>
+      <button onclick="clickButton('.')" id="."><span>.</span></button>
+      <button onclick="clickButton('/')" id="/"><span>/</span></button>
+      <button onclick="clickButton('Shift')" id="Shift" class="u1-75"><span>Shift</span></button>
+      <button onclick="clickButton('End')" id="End" class="other end"><span>End</span></button>
+    </div>
+    <div class="row row-ctrl">
+      <button onclick="clickButton('lCtrl')" id="lCtrl" class="u1-25"><span>Ctrl</span></button>
+      <button onclick="clickButton('Win')" id="Win" class="u1-25"><span>Win</span></button>
+      <button onclick="clickButton('lAlt')" id="lAlt" class="u1-25"><span>Alt</span></button>
+      <button onclick="clickButton('Space')" id="Space" class="u6-5"><span></span></button>
+      <button onclick="clickButton('rAlt')" id="rAlt"><span>Alt</span></button>
+      <button onclick="clickButton('Fn')" id="Fn"><span>Fn</span></button>
+      <button onclick="clickButton('rCtrl')" id="rCtrl"><span>Ctrl</span></button>
+    </div>
+
+
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

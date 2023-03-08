@@ -1,0 +1,137 @@
+body {
+  background-color: #636363;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: max-content;
+}
+
+
+.u1-25 {
+  width: 67.5px;
+}
+
+
+.u1-5 {
+  width: 81px;
+}
+
+.u1-75 {
+  width: 94.5px;
+}
+
+.u2 {
+  width: 108px;
+}
+
+.u2-25 {
+  width: 125px;
+}
+
+.u2-75 {
+  width: 148.5px;
+}
+.u6-5 {
+  width: 351px;
+}
+button {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(180deg, #636363, hsl(0, 0%, 51%));
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.75), 10px 20px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  bottom: 4px;
+  right: 7px;
+  background: linear-gradient(90deg, #636363, #abaaaa);
+  border-radius: 10px;
+  box-shadow: -10px -10px 10px rgba(231, 231, 231, 0.4);
+
+}
+
+.active::before {
+  background: linear-gradient(90deg, #989696, #636363);
+}
+
+button span {
+  position: absolute;
+  color: #fff;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-shadow: 3px 3px 10px #636363;
+}
+
+.knob::before {
+  border-radius: 50%;
+  left: 3px;
+  right: 3px;
+}
+
+.row {
+  margin-bottom: 5px;
+}
+
+.row-f button:nth-child(1), .row-f button:nth-child(5), .row-f button:nth-child(9), .row-f button:nth-child(13){
+  margin-right: 13.5px;
+}
+
+.knob{
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.other{
+  position: absolute;
+  right: 2px;
+}
+
+.arrow {
+  position: relative;
+}
+.arrow-item {
+  position: absolute;
+}
+
+.arrow-item {
+  bottom: -10px;
+  right: 14px;
+}
+
+.down, .up {
+  right: 72px;
+}
+
+.up {
+  bottom: 50px;
+}
+
+.left{
+  right: 130px;
+}
+
+.screen {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  text-shadow: 3px 5px 10px #2c2c2c, 4px 5px 12px #abaaaa;
+  color: #949494;
+}
