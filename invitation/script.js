@@ -88,10 +88,16 @@ createApp({
             const div = document.getElementById('content')
             html2canvas(div).then((canvas) => {
                 canvas.toBlob(blob => {
-                    const item = new ClipboardItem({ "image/png": blob});
+                    const item = new ClipboardItem({ "image/png": blob });
                     navigator.clipboard.write([item])
+                    this.showToast()
                 })
             })
+        },
+        showToast: function () {
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 2000);
         }
     }
 }).mount('#app')
