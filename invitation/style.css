@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Bungee+Shade&family=Dancing+Script&display=swap');
+* {
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: #214210;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+/* #app {
+    margin: auto;
+} */
+
+.main-card {
+  margin: auto;
+  max-width: 1000px;
+  border: 1px solid #b0bf95;
+
+  background-image: url('./imgs/bg.png');
+  position: relative;
+  overflow: hidden;
+}
+
+.main-card-container {
+    margin-top: 40px;
+padding: 20px;
+max-width: 1040px;
+margin: auto;
+border: 1px solid #b0bf95;
+}
+
+.font-dancing-script {
+  font-family: "Dancing Script", cursive !important;
+  text-decoration: none;
+}
+
+.page1-header {
+  font-size: 35px;
+  color: #214210;
+}
+
+
+
+.fa-heart {
+    /* top: 50%;
+    left: 50%; */
+    font-size: 20px;
+
+
+}
+.heart1 {
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 0;
+    top: 20%;
+}
+
+.heart2 {
+    transform: rotate(135deg);
+    position: absolute;
+    top: 20%;
+    right: 0;
+}
+
+.p-relative {
+    position: relative;
+}
+
+.p-absolute {
+    position: absolute;
+}
+
+
+.flower-left {
+    background-image: url('./imgs/left-flower.png');
+    height: 1000px;
+    background-repeat: no-repeat;
+}
+
+.font-balu {
+    font-family: 'Baloo 2', cursive;
+}
+
+.section {
+    background-image: url('./imgs/sec-title-flower.png');
+    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.section-top {
+    background-image: url('./imgs/rsvp-flower.png');
+    height: 260px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 30px;
+    top: -100px;
+}
+
+.font-bungee {
+    font-family: 'Bungee Shade', cursive;
+}
+
+
+.tt {
+    position: relative;
+}
+.tt::before, .tt::after {
+    content: '';
+    background-color: #214210;
+    height: 1px;
+    width: 90px;
+    position: absolute;
+}
+
+.tt::before {
+    top: -5px;
+    left: -5px;
+}
+
+.tt::after {
+    bottom: -5px;
+    left: -5px;
+}
+
+.y2023 {
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+}
+
+.flower-right {
+    background-image: url('./imgs/right-flower.png');
+    height: 1000px;
+    background-repeat: no-repeat;
+    right: -500px;
+    bottom: -370px;
+    position: absolute;
+}
