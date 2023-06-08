@@ -19,7 +19,8 @@
             <div class="col-sm-5 m-0 p-0 row m-auto">
                 <div class="col-12 row">
                     <div class="col-sm-3 d-flex align-items-center">Người nhận: </div>
-                    <div class="col-sm-9"><input type="text" placeholder="kính mời ..." class="form-control" v-model="name"></div>
+                    <div class="col-sm-9"><input type="text" placeholder="kính mời ..." class="form-control"
+                            v-model="name"></div>
                 </div>
                 <div class="col-12 row mt-1">
                     <div class="col-sm-3 d-flex align-items-center">Thời gian: </div>
@@ -47,7 +48,8 @@
 
                 <!-- <input type="text" v-model="location" placeholder="Tại ..."> -->
 
-                <div class="my-2"><button @click="takeScreenShot" style="width: 150px;" class="btn btn-primary">Copy</button></div>
+                <div class="my-2"><button @click="takeScreenShot" style="width: 150px;"
+                        class="btn btn-primary">Copy</button></div>
             </div>
         </div>
 
@@ -129,30 +131,34 @@
                         <span class="p-relative" style="width: 150px; height: 30px;">
 
                             <i class="fa-solid fa-heart heart1">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                height="1em" viewBox="0 0 512 512">
-                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#214210" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path fill="#214210"
+                                        d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                                </svg>
                             </i>
 
                             <i class="fa-solid fa-heart heart2">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                height="1em" viewBox="0 0 512 512">
-                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="#214210" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path fill="#214210"
+                                        d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                                </svg>
                             </i>
 
                             <i class="fa-solid fa-heart heart me-2">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                height="1em" viewBox="0 0 512 512">
-                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="transparent" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path fill="transparent"
+                                        d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                                </svg>
                             </i>
                             <i class="fa-solid fa-heart heart">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                height="1em" viewBox="0 0 512 512">
-                                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                <path fill="transparent" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path fill="transparent"
+                                        d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                                </svg>
                             </i>
                         </span>
                         Như Ngọc
@@ -163,7 +169,7 @@
                     <div class="upper"> Vào hồi 12 giờ 00</div>
                     <div class="col-sm-4 m-auto d-flex align-items-center justify-content-between">
                         <div class="upper tt">Chủ nhật</div>
-                        <div  class="p-relative">
+                        <div class="p-relative">
                             <div class="p-absolute y2023">2023</div>
                             <div style="font-size: 80px;">
                                 25
@@ -174,6 +180,47 @@
 
                     <div class="col-sm-12 mb-5" style="font-style: italic;">
                         (Tức ngày 08 tháng 05 năm Quý Mão)
+                    </div>
+
+                    <div class="col-sm-12 mt-2 mb-5" style="z-index: 10;">
+                        <div >
+                            <div style="font-style: italic;">Mọi yêu thương không kịp trao tay xin được gửi về:</div>
+                            <div class="row m-0 p-0 upper">
+                                <div class="col-sm-8 m-0 p-0 m-auto">
+                                    <div class="row m-0 p-0">
+                                        <div  class="col-sm-6 m-0 p-0 mt-2">
+                                            <div>Chú rể</div>
+                                            <div style="width: 130px;" class="m-auto">
+                                                <img class="w-100" src="./imgs/toan.jpeg" alt="">
+                                            </div>
+                                            <div>
+                                                <div class="">Techcombank <img style="width: 30px;" src="./imgs/tcb.png" alt="">
+                                                </div>
+                                                <div class="">STK: <b>1907 0125 0330 15</b></div>
+                                                <div class="">Chủ tài khoản: <b>Trần Đức Toàn</b></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 m-0 p-0 mt-2">
+                                            <div>
+                                                Cô dâu
+                                            </div>
+
+                                            <div style="width: 130px;" class="m-auto">
+                                                <img class="w-100" src="./imgs/kit.jpeg" alt="">
+                                            </div>
+                                            <div>
+                                                <div class="">Techcombank <img style="width: 30px;" src="./imgs/tcb.png" alt="">
+                                                </div>
+                                                <div class="">STK: <b>1903 5087 6500 13</b></div>
+                                                <div class="">Chủ tài khoản: <b>Nguyễn Như Ngọc</b></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
