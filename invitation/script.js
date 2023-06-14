@@ -69,7 +69,7 @@ createApp({
             }
             const d = new Date(this.date)
             const date = d.getDate() > 10 ? d.getDate() : '0' + d.getDate().toString()
-            const month = d.getMonth() > 10 ? d.getMonth() : '0' + d.getMonth().toString()
+            const month = '6'
             return date + ' - ' + month + ' - ' + d.getFullYear()
         },
         getLunarDate: function () {
