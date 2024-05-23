@@ -6,16 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
   <div id="app">
     <div class="pytagoContainer">
-      <div v-for="i in 9">
-        <div>{{i}}</div>
-      </div>
+      <table >
+        <tr>
+          <th v-for="i in r1"> {{ i }}</th>
+        </tr>
+        <tr>
+          <td v-for="i in r2"> {{ i }}</td>
+        </tr>
+        <tr>
+          <td v-for="i in r3"> {{ i }}</td>
+        </tr>
+        <tr>
+          <td v-for="i in r4"> {{ i }}</td>
+        </tr>
+      </table>
     </div>
     <input v-model="name" />
+    <input type="date" name="" id="" f value="2024-07-28" placeholder="dd-mm-yyyy" 
+    min="1997-01-01" 
+    max="2030-12-31">
+
+    <div>
+      <table>
+        <tr>
+          <td v-for="item in name">
+            {{item.trim() == '' ? '<div></div>' : item}}
+          </td>
+        </tr>
+
+        <tr>
+          <td v-for="item in name">
+            {{checkIndex(item)}}
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="script.js"></script>

@@ -4,23 +4,31 @@ const { createApp } = Vue
 createApp({
   data () {
     return {
-      name: null,
-      pytagoNumber: []
+      name: "tran bao dang",
+      r1: '123456789',
+      r2: 'abcdefghj',
+      r3: 'klmnopqrs',
+      r4: 'tuvxyz',
+      pytagoNumber: [
+        'ajs',
+        'bkt',
+        'clu',
+        'dmv',
+        'enx',
+        'foy',
+        'gpz',
+        'hq',
+        'ir'
+      ]
     }
   },
-  method: {
-    generatePytagoNumber: function () {
-      this.pytagoNumber = [
-        ['a', 'j', 's'],
-        ['b', 'k', 't'],
-        ['c', 'l', 'u'],
-        ['d', 'm', 'v'],
-        ['e', 'n', 'x'],
-        ['f', 'o', 'y'],
-        ['g', 'p', 'z'],
-        ['h', 'q'],
-        ['i', 'r'],
-      ]
+  methods: {
+    checkIndex(char) {
+      for (let i = 0; i < this.pytagoNumber.length; i++) {
+        if (this.pytagoNumber[i].includes(char)) {
+          return i + 1
+        }        
+      }
     }
   }
 }).mount('#app')
