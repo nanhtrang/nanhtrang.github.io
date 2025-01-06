@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Event Click LatLng</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex justify-content-center">
+    <div class="mt-2 w-75 d-flex justify-content-between">
+      <div class="card">
+        <div class="input-group">
+          <input type="text" id="txtStartLat" class="form-control" value="37.5925">
+          <input type="text" id="txtStartLng" class="form-control" value="126.675">
+          <button class="btn btn-primary" onclick="startLocation()">Start Location</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="input-group">
+          <input type="text" id="txtEndLat" class="form-control" value="37.5061">
+          <input type="text" id="txtEndLng" class="form-control" value="127.0276">
+          <button class="btn btn-primary" onclick="endLocation()">End Location</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="input-group">
+          <input type="text" id="txtTripId" class="form-control" value="12">
+          <button class="btn btn-primary" onclick="createSql()">Create SQL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="d-flex justify-content-center">
+
+    <div id="map" style="width:80vw;height:90vh;"></div>
+    <div class="d-flex flex-column ms-3">
+      <textarea name="" id="txt" class="form-control w-100 flex-grow-1 mb-3" style="resize: none;">
+        </textarea>
+      <button class="btn btn-primary" onclick="saveLocation()">Save Location</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script>
+    var map = null
+    var listMarkers = []
+    var listStartEndLocation = []
+    var listLocation = []
+    function initMap() {
+      const myLatlng = new google.maps.LatLng(37.5925, 126.675)
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: myLatlng,
+      });
+      let infoWindow = new google.maps.InfoWindow({
+        content: "Click the map to get Lat/Lng!",
+        position: myLatlng,
+      });
+      document.getElementById("txt").value = ''
+      map.addListener("click", (mapsMouseEvent) => {
+        listLocation.push({
+          lat: mapsMouseEvent.latLng.lat(),
+          lng: mapsMouseEvent.latLng.lng(),
+        })
+        document.getElementById("txt").value = JSON.stringify(listLocation)
+      });
+    }
+
+    function startLocation() {
+      const startLat = document.getElementById("txtStartLat").value
+      const startLng = document.getElementById("txtStartLng").value
+      const position = new google.maps.LatLng(startLat, startLng)
+      map.panTo(position)
+      drawMarker(position, 'Start Location')
+      listStartEndLocation.push(position)
+      drawLine()
+    }
+
+    function drawMarker(position, title) {
+      const marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: title,
+      });
+      listMarkers.push(marker)
+    }
+
+    function endLocation() {
+      const endLat = document.getElementById("txtEndLat").value
+      const endLng = document.getElementById("txtEndLng").value
+      const position = new google.maps.LatLng(endLat, endLng)
+      map.panTo(position)
+      drawMarker(position, 'End Location')
+      listStartEndLocation.push(position)
+      drawLine()
+    }
+
+    function drawLine() {
+      if (listStartEndLocation.length < 2) {
+        return
+      }
+      const startLat = document.getElementById("txtStartLat").value
+      const startLng = document.getElementById("txtStartLng").value
+      const endLat = document.getElementById("txtEndLat").value
+      const endLng = document.getElementById("txtEndLng").value
+      const position = new google.maps.LatLng(startLat, startLng)
+      const position2 = new google.maps.LatLng(endLat, endLng)
+      const line = new google.maps.Polyline({
+        path: [position, position2],
+        map: map,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      })
+      listLines.push(line)
+    }
+
+    function clearMarkers() {
+      for (let marker of listMarkers) {
+        marker.setMap(null)
+      }
+      listMarkers = []
+    }
+
+    function createSql() {
+      const tripId = document.getElementById("txtTripId").value
+      const sql = `INSERT INTO trip (trip_id, start_lat, start_lng, end_lat, end_lng) VALUES (${tripId}, ${startLat}, ${startLng}, ${endLat}, ${endLng})`
+      document.getElementById("txt").value = sql
+    }
+
+    function saveLocation() {
+      let sql = 'INSERT INTO public.tb_gps_tracking (latitude, longitude, speed, trip_id, is_enable) VALUES \n'
+      const tripId = document.getElementById("txtTripId").value
+
+      for (let i = 0; i < listLocation.length; i++) {
+        const element = listLocation[i];
+        sql += `(${element.lat}, ${element.lng}, 0, ${tripId}, true)`
+        if (i < listLocation.length - 1) {
+          sql += ',\n'
+        }
+      }
+      sql += ';'
+
+      console.log(sql)
+      document.getElementById("txt").value = sql
+    }
+
+  </script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyNYqqZpznp5Qpi-3dOgT1Tk3BSqiVyBs&callback=initMap"></script>
+</body>
+
+</html>
