@@ -22,6 +22,14 @@
       padding: 0;
     }
 
+    #map {
+      cursor: pointer !important;
+    }
+
+    #map div {
+      cursor: pointer !important;
+    }
+
     .green-gradient-toast {
       color: white !important;
       /* Đảm bảo màu chữ là trắng */
@@ -132,11 +140,24 @@
       });
       document.getElementById("txt").value = ''
       map.addListener("click", (mapsMouseEvent) => {
+        let lastLocation = null
+        if (listLocation.length > 0) {
+          lastLocation = listLocation[listLocation.length - 1]
+        }       
         listLocation.push({
           lat: mapsMouseEvent.latLng.lat(),
           lng: mapsMouseEvent.latLng.lng(),
         })
+        const position2 = new google.maps.LatLng(mapsMouseEvent.latLng.lat(), mapsMouseEvent.latLng.lng())
+        if (lastLocation) {
+          const position1 = new google.maps.LatLng(lastLocation.lat, lastLocation.lng)
+          
+          drawTripLine(position1, position2)
+        } else {
+          drawTripLine(position2, position2)
+        }
         document.getElementById("txt").value = JSON.stringify(listLocation)
+        
       });
     }
 
@@ -191,6 +212,16 @@
         strokeWeight: 2
       })
       listLines.push(line)
+    }
+
+    function drawTripLine(position1, position2) {
+      const line = new google.maps.Polyline({
+        path: [position1, position2],
+        map: map,
+        strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 4
+      })
     }
 
     function clearMarkers() {
