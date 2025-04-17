@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SVG to Image Converter (Clipboard)</title>
+  <style>
+    #svgInputContainer {
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+    }
+
+    #outputContainer {
+      margin-top: 10px;
+    }
+
+    #outputImage {
+      max-width: 100%;
+      border: 1px solid #eee;
+      display: none;
+    }
+
+    #copyMessage {
+      display: none;
+      color: green;
+      font-weight: bold;
+    }
+
+    #errorMessage {
+      display: none;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>SVG to Image Converter (Clipboard)</h1>
+
+  <div id="svgInputContainer">
+    <label for="svgCode">Nhập mã SVG:</label><br>
+    <textarea id="svgCode" placeholder="Dán mã SVG của bạn vào đây"></textarea>
+  </div>
+
+  <div>
+    <label for="imageType">Chọn định dạng:</label>
+    <select id="imageType">
+      <option value="png">PNG</option>
+      <option value="jpeg">JPEG</option>
+    </select>
+  </div>
+
+  <button onclick="convertToClipboard()">Chuyển đổi và sao chép vào clipboard</button>
+
+  <div id="outputContainer">
+    <h2>Ảnh đã chuyển đổi:</h2>
+    <img id="outputImage">
+    <p id="copyMessage">Đã sao chép vào clipboard!</p>
+    <p id="errorMessage"></p>
+  </div>
+
+  <script>
+    async function convertToClipboard() {
+      const svgCode = document.getElementById('svgCode').value;
+      const imageType = document.getElementById('imageType').value;
+      const outputImage = document.getElementById('outputImage');
+      const copyMessage = document.getElementById('copyMessage');
+      const errorMessage = document.getElementById('errorMessage');
+
+      copyMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      if (!svgCode.trim()) {
+        errorMessage.textContent = 'Vui lòng nhập mã SVG.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+
+      const canvas = document.createElement('canvas');
+      const img = new Image();
+
+      img.onload = async function () {
+        let svgWidth = img.naturalWidth || 200;
+        let svgHeight = img.naturalHeight || 200;
+
+        const widthMatch = svgCode.match(/width=["']?(\\d+)["']?/);
+        const heightMatch = svgCode.match(/height=["']?(\\d+)["']?/);
+        if (widthMatch && widthMatch[1]) {
+          svgWidth = parseInt(widthMatch[1], 10);
+        }
+        if (heightMatch && heightMatch[1]) {
+          svgHeight = parseInt(heightMatch[1], 10);
+        }
+
+        canvas.width = svgWidth;
+        canvas.height = svgHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(img, 0, 0, svgWidth, svgHeight);
+
+        try {
+          const blob = await new Promise((resolve) => canvas.toBlob(resolve, `image/${imageType}`, 1));
+
+          if (navigator.clipboard && navigator.clipboard.write) {
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                [blob.type]: blob,
+              }),
+            ]);
+            outputImage.style.display = 'block';
+            outputImage.src = URL.createObjectURL(blob);
+            copyMessage.style.display = 'block';
+            setTimeout(() => {
+              copyMessage.style.display = 'none';
+              outputImage.style.display = 'none';
+            }, 2000);
+          } else {
+            // Fallback sử dụng document.execCommand('copy')
+            const imageData = canvas.toDataURL(`image/${imageType}`);
+            const success = await copyImageFallback(imageData);
+            if (success) {
+              outputImage.style.display = 'block';
+              outputImage.src = imageData;
+              copyMessage.textContent = 'Đã sao chép vào clipboard (sử dụng phương pháp cũ)!';
+              copyMessage.style.display = 'block';
+              setTimeout(() => {
+                copyMessage.style.display = 'none';
+                outputImage.style.display = 'none';
+              }, 2000);
+            } else {
+              errorMessage.textContent = 'Trình duyệt của bạn không hỗ trợ sao chép vào clipboard.';
+              errorMessage.style.display = 'block';
+              outputImage.style.display = 'block';
+              outputImage.src = imageData;
+            }
+          }
+        } catch (err) {
+          console.error('Không thể sao chép vào clipboard:', err);
+          errorMessage.textContent = 'Đã xảy ra lỗi khi sao chép ảnh vào clipboard.';
+          errorMessage.style.display = 'block';
+        }
+      };
+
+      img.onerror = function () {
+        errorMessage.textContent = 'Mã SVG không hợp lệ hoặc không thể tải.';
+        errorMessage.style.display = 'block';
+      };
+
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgCode);
+    }
+
+    async function copyImageFallback(imageData) {
+      const textarea = document.createElement('textarea');
+      textarea.value = imageData;
+      document.body.appendChild(textarea);
+      textarea.select();
+      const success = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      return success;
+    }
+  </script>
+</body>
+
+</html>
